@@ -134,13 +134,18 @@ export default function AddToListDialog({
     }
 
     selectedListIds.forEach((listId) => {
-      onProspectAdded(listId, prospectId);
+      if (isBulk && onProspectsAdded) {
+        onProspectsAdded(listId, currentProspectIds);
+      } else if (!isBulk) {
+        onProspectAdded(listId, prospectId);
+      }
     });
 
     const selectedCount = selectedListIds.size;
+    const prospectCount = currentProspectIds.length;
     toast({
       title: "Success",
-      description: `Prospect added to ${selectedCount} list${selectedCount > 1 ? "s" : ""}!`,
+      description: `${prospectCount} prospect${prospectCount > 1 ? "s" : ""} added to ${selectedCount} list${selectedCount > 1 ? "s" : ""}!`,
     });
 
     setSelectedListIds(new Set());
