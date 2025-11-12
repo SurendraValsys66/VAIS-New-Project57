@@ -198,6 +198,35 @@ export default function WishlistProspects() {
     }
   };
 
+  const addSampleData = () => {
+    const sampleLists: ProspectList[] = [
+      {
+        id: "sample-1",
+        name: "Enterprise Tech Leaders",
+        prospects: ["prospect-001", "prospect-002", "prospect-003", "prospect-004"],
+        createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
+      },
+      {
+        id: "sample-2",
+        name: "SaaS Company Founders",
+        prospects: ["prospect-005", "prospect-006", "prospect-007"],
+        createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+      },
+      {
+        id: "sample-3",
+        name: "C-Level Executives",
+        prospects: ["prospect-008", "prospect-009", "prospect-010", "prospect-011", "prospect-012"],
+        createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
+      },
+    ];
+
+    setLists(sampleLists);
+    toast({
+      title: "Sample Data Added",
+      description: "3 sample lists created for testing",
+    });
+  };
+
   const formatDate = (dateString: string) => {
     try {
       const date = new Date(dateString);
