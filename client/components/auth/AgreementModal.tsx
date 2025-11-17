@@ -218,6 +218,7 @@ export default function AgreementModal({
         setHasRead(false);
         setHasUnderstood(false);
         setHasAgreed(false);
+        setAgreesToTerms(false);
       }, 300);
     }
   };
