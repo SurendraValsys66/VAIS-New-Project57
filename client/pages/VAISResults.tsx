@@ -888,18 +888,20 @@ export default function VAISResults() {
           <Card className="shadow-sm relative">
             <CardHeader className="pb-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-3">
                   <CardTitle className="text-lg">Company Results</CardTitle>
-                  <Badge variant="secondary" className="bg-gray-100 flex items-center gap-2">
-                    <Checkbox
-                      checked={
-                        selectedItems.length === paginatedData.length &&
-                        paginatedData.length > 0
-                      }
-                      onCheckedChange={handleSelectAll}
-                    />
+                  <Badge variant="secondary" className="bg-gray-100">
                     {selectedItems.length} Items Selected
                   </Badge>
+                  <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+                    <Checkbox
+                      checked={selectedItems.length > 0}
+                      onCheckedChange={(checked) => handleSelectAll(checked as boolean)}
+                    />
+                    <span className="text-sm text-gray-600 font-medium">
+                      {selectedItems.length > 0 ? "Deselect All" : "Select All"}
+                    </span>
+                  </div>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Select
